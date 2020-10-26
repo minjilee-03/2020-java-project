@@ -18,13 +18,13 @@ public class Test {
 	JFrame frame;
 	
 	// 발판 관련 변수
-	int field = 700; // 필드 값 : 700
-	String fieldStr = "1111110011110111011010111110101111111";
+	int field = 750; // 필드 값 : 700
+	String fieldStr = "1111111110101101101101101101";
 	List<Foot> fieldList = new ArrayList<>();
 	int count1 = 0;
 	int nowField = field; // nowField = field의 값
 
-	ImageIcon landIc = new ImageIcon("..\\\\testimg\\\\footTest2.png");
+	ImageIcon landIc = new ImageIcon("..//image//block.jpg");
 	Image landImg = landIc.getImage();
 
 	static int getGround(String ground, int index) {
@@ -32,8 +32,9 @@ public class Test {
 	}
 
 	// 쿠키 및 점프 관련 변수
-	ImageIcon cookieIc = new ImageIcon("..//practiceImg//cookieTest.png");
+	ImageIcon cookieIc = new ImageIcon("..//testimg//test01.jpg");
 	Image cookieImg = cookieIc.getImage();
+	
 	int imgY = 5;
 	int doubleJump = 0;
 	boolean fall = false;
@@ -104,7 +105,7 @@ public class Test {
 				int tempX = i * landImg.getWidth(null);
 
 				if (getGround(fieldStr, i) == 1) {
-					fieldList.add(new Foot(landImg, tempX, 700, landImg.getWidth(null), landImg.getHeight(null)));
+					fieldList.add(new Foot(landImg, tempX, 750, landImg.getWidth(null), landImg.getHeight(null)));
 				}
 			}
 			// 젤리 리스트
@@ -139,7 +140,7 @@ public class Test {
 				public void run() {
 					while (true) {
 						for (int i = 0; i < fieldList.size(); i++) {
-							fieldList.get(i).setX(fieldList.get(i).getX() - 4);
+							fieldList.get(i).setX(fieldList.get(i).getX() - 3);
 						}
 						int range = (int) (landImg.getWidth(null) * 1.2);
 						for (int i = 0; i < fieldList.size(); i++) {
@@ -165,7 +166,7 @@ public class Test {
 				@Override
 				public void run() {
 					while (true) {
-						for (int i = 0; i < jellyList.size(); i++) { jellyList.get(i).setX(jellyList.get(i).getX() - 4); }
+						for (int i = 0; i < jellyList.size(); i++) { jellyList.get(i).setX(jellyList.get(i).getX() - 3); }
 						int range = (int) (jellyImg.getWidth(null) * 1.2);
 						for (int i = 0; i < jellyList.size(); i++) {
 							if (jellyList.get(i).getX() >= 0 && jellyList.get(i).getX() < range) {
@@ -235,7 +236,7 @@ public class Test {
 								repaint();
 
 								if (jump == true)
-									break; // 떨어지다가 더블점프하면 낙하 중지
+									break; // 떨어지다가 점프하면 낙하 중지
 
 								try {
 									Thread.sleep(10);
