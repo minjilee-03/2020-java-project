@@ -12,15 +12,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 //테마 고르는창
-public class SelectItem extends JFrame implements ActionListener {
+public class Main_start extends JFrame implements ActionListener {
 	private JButton btn;
-	Music introMusic = new Music("..\\music\\ITEM_BGM.MP3", true);//뮤직
-	public SelectItem() {
+	Music introMusic = new Music("..\\music\\LOBI_BGM.MP3", true);//뮤직
+	public Main_start() {
 		getContentPane().setLayout(null);
 		
 		btn = new JButton();
-		btn.setOpaque(false);
 		btn.setBorderPainted(false);
+		btn.setOpaque(false);
 		btn.setBounds(0, 0, 33, 35);
 		getContentPane().add(btn);
 		btn.addActionListener(this);
@@ -41,17 +41,17 @@ public class SelectItem extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				introMusic.close();
 				setVisible(false);
-				CookieRun cr = new CookieRun();
-				cr.main(null);
+				SelectItem cr = new SelectItem();
+				cr.setVisible(true);
 					
 			}
 		});
-		button.setIcon(new ImageIcon("..\\image\\start_game.jpg"));
-		button.setBounds(700, 541, 652, 195);
+		button.setIcon(new ImageIcon("..\\image\\start_btm.jpg"));
+		button.setBounds(937, 580, 505, 128);
 		getContentPane().add(button);
 		
 		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon("..\\image\\Item_back.jpg"));
+		label_1.setIcon(new ImageIcon("..\\image\\main_back.jpg"));
 		label_1.setBounds(0, 0, 1478, 794);
 		getContentPane().add(label_1);
 	
@@ -59,6 +59,7 @@ public class SelectItem extends JFrame implements ActionListener {
 		setLocation(0, 0);
 		setDefaultCloseOperation(EXIT_ON_CLOSE); //x를 누르면 닫히게 한다는 것(SWING은 이게 없어도 먹힘)
 		setSize(1500,850);
+		setVisible(true);
 		setResizable(false);
 		setLocation(100,100);
 		backbtn.addActionListener(new ActionListener() {
@@ -77,6 +78,6 @@ public class SelectItem extends JFrame implements ActionListener {
 		introMusic.start();
 }
 	public static void main(String[] args) {
-		new SelectItem();
+		new Main_start();
 	}
 }
