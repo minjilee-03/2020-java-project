@@ -1,0 +1,13 @@
+1. mysql에 있는 user 테이블 삭제
+2. 새로운 user 테이블 생성
+
+생성 코드
+
+create table user(
+id int(10) not null auto_increment,
+name varchar(30),
+pw varchar(30),
+score int(30) default 0,
+money int(30) default 0,
+item int(30) default 0,
+primary key(id));
