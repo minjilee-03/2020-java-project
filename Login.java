@@ -71,7 +71,7 @@ public class Login extends JFrame implements ActionListener{
 				if (u1.login(strId, strPw)==true) {
 					introMusic.close();
 					frame.setVisible(false);
-					Main_start mb = new Main_start();
+					Main_lobi mb = new Main_lobi();
 					mb.setVisible(true);
 				} else {
 					result.setText("아이디 또는 비밀 번호가 일치하지 않습니다.");
@@ -108,7 +108,7 @@ public class Login extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				introMusic.close();
 				frame.setVisible(false);
-				Main_start mb = new Main_start();
+				Main_lobi mb = new Main_lobi();
 				mb.setVisible(true);
 			}
 		});
