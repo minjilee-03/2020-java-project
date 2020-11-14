@@ -6,10 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import Game.CookieRun;
+import Game.Stage1;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import java.awt.Font;
 
 //테마 고르는창
 public class Main_lobi extends JFrame implements ActionListener {
@@ -48,6 +49,16 @@ public class Main_lobi extends JFrame implements ActionListener {
 				l1.setVisible(true);
 			}
 		});
+		
+		JLabel resultLabel = new JLabel("");//머니값 넣는 라벨
+		resultLabel.setFont(new Font("굴림", Font.PLAIN, 21));
+		resultLabel.setBounds(1014, 18, 82, 21);
+		getContentPane().add(resultLabel);
+		
+		JLabel label = new JLabel("\uBA38\uB2C8:");
+		label.setFont(new Font("굴림", Font.BOLD, 27));
+		label.setBounds(937, 15, 82, 21);
+		getContentPane().add(label);
 		button_1.setIcon(new ImageIcon("..\\image\\logout.jpg"));
 		button_1.setBounds(0, 749, 184, 45);
 		getContentPane().add(button_1);
@@ -56,7 +67,7 @@ public class Main_lobi extends JFrame implements ActionListener {
 		getContentPane().add(button);
 		
 		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon("..\\image\\main_back.jpg"));
+		label_1.setIcon(new ImageIcon("E:\\2211_2217_2020java\\image\\main_back.jpg"));
 		label_1.setBounds(0, 0, 1478, 794);
 		getContentPane().add(label_1);
 		
