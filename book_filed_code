@@ -1,0 +1,19 @@
+private ImageIcon fieldIc = new ImageIcon("..//image//game_image//book_field.png");//book field1
+	private ImageIcon fieldIc2 = new ImageIcon("..//image//game_image//book_field2.png");//book field2
+	private ImageIcon fieldIc3 = new ImageIcon("..//image//game_image//book_field3.png");//book field3
+	private ImageIcon fieldIc4 = new ImageIcon("..//image//game_image//book_field4.png");//book field4
+
+for(int i = 0; i<fieldStr.length(); i++) {
+				int tempX = i * fieldIc.getImage().getWidth(null);
+				
+				if(getGround(fieldStr, i) == 1) {
+					fieldList.add(new Foot(fieldIc.getImage(), tempX, 750, fieldIc.getImage().getWidth(null), fieldIc.getImage().getHeight(null)));
+				} else if(getGround(fieldStr,i) == 2) {//field2~4
+					fieldList.add(new Foot(fieldIc2.getImage(), tempX, 750, fieldIc2.getImage().getWidth(null), fieldIc2.getImage().getHeight(null)));
+				} else if(getGround(fieldStr, i) == 3) {
+					fieldList.add(new Foot(fieldIc3.getImage(), tempX, 750, fieldIc3.getImage().getWidth(null), fieldIc3.getImage().getHeight(null)));
+				} else if(getGround(fieldStr, i) == 4) {
+					fieldList.add(new Foot(fieldIc4.getImage(), tempX, 750, fieldIc4.getImage().getWidth(null), fieldIc4.getImage().getHeight(null)));
+					
+				}
+			}
