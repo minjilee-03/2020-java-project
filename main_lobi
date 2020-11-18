@@ -1,0 +1,132 @@
+package src;
+
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import Game.Stage1;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+import java.awt.Color;
+import java.awt.Font;
+
+//테마 고르는창
+public class Main_lobi extends JFrame implements ActionListener {
+	private JButton btn;
+
+
+	user u = new user();
+	Music introMusic = new Music("..\\music\\LOBI_BGM.MP3", true);//뮤직
+	public Main_lobi() {
+		u.Rank(1, "2", 3);
+		getContentPane().setLayout(null);
+		JPanel p = new JPanel();
+		p.setBounds(0, 0, 0, 0);
+		JButton backbtn = new JButton(""); 
+		backbtn.setIcon(new ImageIcon("..\\image\\btn_image\\back_btn.jpg"));
+		getContentPane().add(p);
+		p.setLayout(null);
+		p.add(backbtn);
+	
+		JLabel score = new JLabel(Integer.toString(u.m_score));//점수
+		score.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 51));
+		score.setForeground(Color.WHITE);
+		score.setBounds(584, 219, 199, 74);
+		getContentPane().add(score);
+		
+		JLabel rname = new JLabel("");//이름
+		rname.setFont(new Font("휴먼둥근헤드라인", Font.BOLD, 31));
+		rname.setForeground(Color.WHITE);
+		rname.setBounds(350, 219, 217, 74);
+		getContentPane().add(rname);
+		
+		
+		JLabel rnum = new JLabel(Integer.toString(u.r_num));//랭킹 순위
+		rnum.setFont(new Font("Dialog", Font.BOLD, 87));
+		rnum.setForeground(Color.WHITE);
+		rnum.setBounds(137, 219, 75, 74);
+		getContentPane().add(rnum);
+		
+		backbtn.setBounds(0, 743, 196, 51); 
+	
+		JButton button = new JButton("");
+		button.setBorderPainted(false);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				introMusic.close();
+				setVisible(false);
+				SelectItem cr = new SelectItem();
+				cr.setVisible(true);
+					
+			}
+		});
+		
+		JButton button_1 = new JButton("");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				introMusic.close();
+				setVisible(false);
+				Login l1 = new Login();
+				l1.setVisible(true);
+			}
+		});
+		
+		JLabel resultLabel = new JLabel("");//머니값 넣는 라벨
+		resultLabel.setFont(new Font("굴림", Font.PLAIN, 21));
+		resultLabel.setBounds(1014, 18, 82, 21);
+		getContentPane().add(resultLabel);
+		
+		JLabel label = new JLabel("\uBA38\uB2C8:");
+		label.setFont(new Font("굴림", Font.BOLD, 27));
+		label.setBounds(937, 15, 82, 21);
+		getContentPane().add(label);
+		button_1.setIcon(new ImageIcon("..\\image\\btn_image\\logout.jpg"));
+		button_1.setBounds(0, 765, 184, 45);
+		getContentPane().add(button_1);
+		button.setIcon(new ImageIcon("..\\image\\btn_image\\start_btm.jpg"));
+		button.setBounds(937, 610, 505, 128);
+		getContentPane().add(button);
+		
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon("E:\\2211_2217_2020java\\image\\back_image\\main_back.jpg"));
+		label_1.setBounds(0, 0, 1494, 850);
+		getContentPane().add(label_1);
+		
+		btn = new JButton();
+		btn.setBorderPainted(false);
+		btn.setOpaque(false);
+		btn.setBounds(0, 0, 9, 9);
+		getContentPane().add(btn);
+		btn.addActionListener(this);
+		btn.doClick();
+	
+		setTitle("SchoolRun!");
+		setLocation(0, 0);
+		setDefaultCloseOperation(EXIT_ON_CLOSE); //x를 누르면 닫히게 한다는 것(SWING은 이게 없어도 먹힘)
+		setSize(1500,850);
+		setVisible(true);
+		setResizable(false);
+		setLocation(100,100);
+		backbtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				introMusic.close();
+				setVisible(false);
+				Login ms = new Login(); //캐릭터, 테마 중에 무엇을 고를지 선택
+				ms.setVisible(true);
+			}
+		});
+		
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		introMusic.start();
+}
+	public static void main(String[] args) {
+		new Main_lobi();
+	}
+}
